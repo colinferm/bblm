@@ -1,0 +1,31 @@
+
+version: "3.7"
+
+services:
+  web-server:
+    build:
+      dockerfile: php.Dockerfile
+      context: .
+    environment:
+      DATABASE_HOST: mysql-server
+      NODE_ENV: development
+    volumes:
+      - "./src/:/var/www/html/"
+    ports:
+      - "8080:80"
+
+  mysql-server:
+    image: mysql:5.7.32
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: bblm
+      MYSQL_USER: bblm
+      MYSQL_PASSWORD: bblm
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./data:/docker-entrypoint-initdb.d
+
+volumes:
+  mysql-data:
+
+
