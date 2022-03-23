@@ -1,4 +1,8 @@
-<th scope="row"><a href="/race/<%= id %>"><%= name %></a></th>
-<td><%= reroll %></td>
-<td><%= apothecary %></td>
-<td><%= rules %></td>
+<th scope="row"><a href="/race/{{id}}">{{name}}</a></th>
+<td>{{reroll}}</td>
+<td>{{apothecary}}</td>
+<td>
+	{{#rules}}
+		<div>{{name}}</div>
+	{{/rules}}
+</td>

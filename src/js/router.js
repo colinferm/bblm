@@ -1,9 +1,10 @@
 BBLM.Router = Backbone.Router.extend({
 	savedSearches : {},
 	history:[],
+	currentView: null,
 
 	routes:{
-		"":"home",
+		"":"listRaces",
 		"setup": "setupDashboard",
 		"race":"listRaces",
 		"race/new": "raceForm",
@@ -19,7 +20,9 @@ BBLM.Router = Backbone.Router.extend({
 	},
 
 	listRaces: function() {
-
+		var raceList = BBLM.View.RacesList({collection: new BBLM.Collection.Races() });
+		this.currentView = raceList;
+		$("#content").html(raceList.render().el);
 	},
 
 	raceForm: function(id) {

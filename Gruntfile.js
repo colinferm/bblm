@@ -53,9 +53,10 @@ module.exports = function(grunt) {
           }
         },
         src: [
-          '/var/www/html/underscore-umd-min.js',
-          '/var/www/html/backbone-min.js',
-          '/var/www/html/jquery-3.6.0-min.js'
+          '/var/www/html/js/lib/underscore-umd-min.js',
+          '/var/www/html/js/lib/backbone-min.js',
+          '/var/www/html/js/lib/jquery-3.6.0-min.js',
+          '/var/www/html/js/lib/mustache.js'
         ],
         dest: '/var/www/html/js/libs.js'
       },

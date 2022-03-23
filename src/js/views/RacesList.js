@@ -10,10 +10,17 @@ BBLM.View.RacesList = Backbone.View.extend({
 
 	initialize: function() {
 		this.template = _.template(BBLM.Util.Templates.get(this.templateName));
+		this.listenTo(this.collection, 'sync change', this.render)
+		this.collection.fetch();
 	},
 
 	render: function() {
 		$(this.el).html(this.template({}));
+		var list = this.$('tbody').empty();
+		this.collection.each(function(model){
+			var listItem = BBLM.View.RaceListItem({model: model});
+			list.append(listItem.render().$el);
+		}, this);
 
 		return this;
 	},

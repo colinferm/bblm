@@ -60,7 +60,7 @@ function marshalTeam($obj) {
 	foreach($rule_results as $r) {
 		$rules[] = array(
 			'id' => $r['id'],
-			'nname' => $r['rule_name']
+			'name' => $r['rule_name']
 		);
 	}
 	$team['rules'] = $rules;
