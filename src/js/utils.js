@@ -17,3 +17,6 @@ BBLM.Util.Templates = {
 		return BBLM.Template[name];
 	}
 }
+
+BBLM.Util.Dispatcher = {};
+_.extend(BBLM.Util.Dispatcher, Backbone.Events);

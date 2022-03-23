@@ -1,4 +1,5 @@
 **Blood Bowl League Manager**
+
 For those who want to run a league or tournament, BBLM is here for you, compliant with the 2020 rules for all players.
 
 The project is currently in development but the plans for it are as follows

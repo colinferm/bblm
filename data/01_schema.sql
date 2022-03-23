@@ -5,7 +5,9 @@ CREATE TABLE race (
 	race_desc TEXT,
 	bribe_cost DECIMAL(8,2),
 	chef_cost DECIMAL(8,2),
-	reroll_cost DECIMAL(8.2)
+	reroll_cost DECIMAL(8.2),
+	tier INT NOT NULL DEFAULT 1,
+	apothecary BIT NOT NULL DEFAULT 1,
 	PRIMARY KEY(id)
 );
 
@@ -30,14 +32,15 @@ DROP TABLE IF EXISTS race_postion_skill_types;
 CREATE TABLE race_postion_skill_types (
 	race_position_id INT NOT NULL,
 	skill_type_id INT NOT NULL,
-	primary_skill BIT NOT NULL DEFAULT '0'
+	primary_skill BIT NOT NULL DEFAULT 0
 );
 
 DROP TABLE IF EXISTS race_position_skills_map;
 CREATE TABLE race_position_skills_map (
 	race_position_id INT NOT NULL,
-	skill_id NOT NULL
-)
+	skill_id INT NOT NULL,
+	modifier INT
+);
 
 DROP TABLE IF EXISTS skill_type;
 CREATE TABLE skill_type (
@@ -45,15 +48,29 @@ CREATE TABLE skill_type (
 	type_name VARCHAR(10),
 	type_code VARCHAR(1) NOT NULL,
 	PRIMARY KEY(id)
-)
+);
 
 DROP TABLE IF EXISTS skill;
 CREATE TABLE skill (
 	id INT NOT NULL AUTO_INCREMENT,
+	skill_type_id INT NOT NULL,
+	requires_mod BIT NOT NULL DEFAULT 0,
 	skill VARCHAR(25) NOT NULL,
 	skill_description TEXT,
-	skill_type_id INT NOT NULL,
 	PRIMARY KEY(id)
+);
+
+DROP TABLE IF EXISTS special_rules;
+CREATE TABLE special_rules (
+	id INT NOT NULL AUTO_INCREMENT,
+	rule_name VARCHAR(30) NOT NULL,
+	PRIMARY KEY(id)
+);
+
+DROP TABLE IF EXISTS race_rule_map;
+CREATE TABLE race_rule_map (
+	race_id INT NOT NULL,
+	rule_id INT NOT NULL
 );
 
 DROP TABLE IF EXISTS league;
@@ -62,7 +79,7 @@ CREATE TABLE league (
 	league_type_id INT NOT NULL,
 	league_name VARCHAR(255),
 	starting_value DECIMAL(9,2) NOT NULL,
-	redraft BIT NOT NULL DEFAULT 1
+	redraft BIT NOT NULL DEFAULT 1,
 	hype TEXT,
 	PRIMARY KEY(id)
 );
@@ -73,7 +90,7 @@ CREATE TABLE league_division (
 	division_name VARCHAR(255),
 	hype TEXT,
 	PRIMARY KEY(id)
-)
+);
 
 DROP TABLE IF EXISTS division_game;
 CREATE TABLE division_game (
@@ -100,7 +117,16 @@ CREATE TABLE division_game (
 	played BIT NOT NULL DEFAULT 0,
 	played_date DATE,
 	PRIMARY KEY(id)
-)
+);
+
+DROP TABLE IF EXISTS inducement;
+CREATE TABLE inducement (
+	id INT NOT NULL AUTO_INCREMENT,
+	allowed_max INT NOT NULL DEFAULT 1,
+	inducment_name VARCHAR(40),
+	cost DECIMAL(8,2),
+	PRIMARY KEY(id)
+);
 
 DROP TABLE IF EXISTS league_season;
 CREATE TABLE league_season (
@@ -108,7 +134,7 @@ CREATE TABLE league_season (
 	league_id INT NOT NULL,
 	season_name VARCHAR(255),
 	PRIMARY KEY(id)
-)
+);
 
 DROP TABLE IF EXISTS team;
 CREATE TABLE team (
@@ -134,7 +160,7 @@ CREATE TABLE team_note (
 	team_id INT NOT NULL,
 	note VARCHAR(255),
 	PRIMARY KEY(id)
-)
+);
 
 DROP TABLE IF EXISTS team_player;
 CREATE TABLE team_player (
@@ -158,6 +184,13 @@ CREATE TABLE team_player (
 	game_count INT NOT NULL DEFAULT 0,
 	season_count INT NOT NULL DEFAULT 0,
 	PRIMARY KEY(id)
+);
+
+DROP TABLE IF EXISTS team_player_skills_map;
+CREATE TABLE team_player_skills_map (
+	team_player_id INT NOT NULL,
+	skill_id INT NOT NULL,
+	modifier INT
 );
 
 DROP TABLE IF EXISTS coach;

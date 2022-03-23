@@ -3,9 +3,26 @@ BBLM.Router = Backbone.Router.extend({
 	history:[],
 
 	routes:{
-		"":"home"
+		"":"home",
+		"setup": "setupDashboard",
+		"race":"listRaces",
+		"race/new": "raceForm",
+		"race/:id": "raceForm"
 	},
 
-	initialize: function () {
+	initialize: function() {
+
+	},
+
+	setupDashboard: function() {
+
+	},
+
+	listRaces: function() {
+
+	},
+
+	raceForm: function(id) {
+
 	}
 });

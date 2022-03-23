@@ -1,5 +1,4 @@
 <?php
-require_once './api/vendor/autoload.php';
 
 ?>
 <!doctype html>
@@ -20,6 +19,10 @@ require_once './api/vendor/autoload.php';
 	<?php require_once './templates.html'; ?>
     <script src="/js/libs.js"></script>
 	<script src="/js/bblm.js"></script>
+
+	<div id="content">
+
+	</div>
 
 	<script>
 		if ($) {
