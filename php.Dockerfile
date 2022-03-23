@@ -19,7 +19,7 @@ WORKDIR /etc/apache2/mods-enabled
 RUN ln -s ../mods-available/rewrite.load rewrite.load
 RUN ln -sf /bin/bash /bin/sh
 
-WORKDIR /var/www/html/api/lib
+WORKDIR /var/www/html/api
 RUN /usr/local/bin/php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
   && /usr/local/bin/php composer-setup.php \
   && /usr/local/bin/php -r "unlink('composer-setup.php');" \

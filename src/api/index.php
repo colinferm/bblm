@@ -1,9 +1,9 @@
 <?php
-require_once './api/vendor/autoload.php';
-require_once './api/utils.php';
-require_once './api/team.php';
-require_once './api/league.php';
-require_once './api/coach.php';
+require_once './vendor/autoload.php';
+require_once './utils.php';
+require_once './team.php';
+require_once './league.php';
+require_once './coach.php';
 
 $app = new \Slim();
 $app->response()->header('Content-Type', 'application/json;charset=utf-8');

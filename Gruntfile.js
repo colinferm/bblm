@@ -11,8 +11,8 @@ module.exports = function(grunt) {
     // Task configuration.
     watch: {
       concatJS: {
-        files: ['/var/www/html/js/**/*.js', '!/var/www/html/js/lib/**/*', '!/var/www/html/js/libs.js', '!/var/www/html/js/bblm.js', '!/var/www/html/js/bblm-compiled.js'],
-        tasks: ['concat:toCompiled', 'concat:toIOSCompiled', 'uglify:fromCompiled', 'clean:removeCompiled'],
+        files: ['/var/www/html/js/app/**/*.js', '!/var/www/html/js/lib/**/*'],
+        tasks: ['concat:toCompiled', 'uglify:fromCompiled', 'clean:removeCompiled'],
         interrupt: true
       },
       concatTemplates: {
@@ -40,7 +40,15 @@ module.exports = function(grunt) {
           banner: '',
           stripBanners: true
         },
-        src: ['/var/www/html/js/utils/main.js', '/var/www/html/js/**'],
+        src: [
+          '/var/www/html/js/utils/main.js', 
+          '/var/www/html/js/app/**/*.js', 
+          '!/var/www/html/js/lib/underscore-umd-min.js', 
+          '!/var/www/html/js/lib/backbone-min.js', 
+          '!/var/www/html/js/lib/jquery-3.6.0-min.js', 
+          '!/var/www/html/js/lib/jquery-3.6.0-min.js',
+          '!/var/www/html/js/lib/mustache.js'
+        ],
         dest: '/var/www/html/js/bblm.js'
       },
       libs: {
@@ -55,8 +63,7 @@ module.exports = function(grunt) {
         src: [
           '/var/www/html/js/lib/underscore-umd-min.js',
           '/var/www/html/js/lib/backbone-min.js',
-          '/var/www/html/js/lib/jquery-3.6.0-min.js',
-          '/var/www/html/js/lib/mustache.js'
+          '/var/www/html/js/lib/jquery-3.6.0.min.js'
         ],
         dest: '/var/www/html/js/libs.js'
       },
@@ -65,7 +72,15 @@ module.exports = function(grunt) {
           banner: '',
           stripBanners: true
         },
-        src: ['/var/www/html/js/main.js', '/var/www/html/js/**'],
+        src: [
+          '/var/www/html/js/utils/main.js', 
+          '/var/www/html/js/app/**/*.js', 
+          '!/var/www/html/js/lib/underscore-umd-min.js', 
+          '!/var/www/html/js/lib/backbone-min.js', 
+          '!/var/www/html/js/lib/jquery-3.6.0-min.js', 
+          '!/var/www/html/js/lib/jquery-3.6.0-min.js',
+          '!/var/www/html/js/lib/mustache.js'
+        ],
         dest: '/var/www/html/js/bblm-compiled.js'
       },
       templates: {
@@ -78,7 +93,7 @@ module.exports = function(grunt) {
               grunt.log.writeln(match[i]);  
             }
             */
-            return '<script type="text/tempate" id="'+ match[1] + '">' +
+            return '<script type="text/template" id="'+ match[1] + '">' +
                     grunt.util.linefeed +
                     src +
                     '</script>' +
@@ -149,7 +164,7 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['watch']);
-  grunt.registerTask('process-js', ['concat:toCompiled', 'concat:toIOSCompiled', 'uglify:fromCompiled', 'clean:removeCompiled']);
+  grunt.registerTask('process-js', ['concat:toCompiled', 'uglify:fromCompiled', 'clean:removeCompiled']);
   grunt.registerTask('process-templates', ['concat:templates']);
   grunt.registerTask('process-libs', ['concat:libs']);
   grunt.registerTask('process-sass', ['sass:dist']);

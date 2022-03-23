@@ -12,7 +12,7 @@ BBLM.Router = Backbone.Router.extend({
 	},
 
 	initialize: function() {
-
+		//this.topNav = 
 	},
 
 	setupDashboard: function() {
@@ -20,9 +20,12 @@ BBLM.Router = Backbone.Router.extend({
 	},
 
 	listRaces: function() {
-		var raceList = BBLM.View.RacesList({collection: new BBLM.Collection.Races() });
+		/*
+		console.log("Blah");
+		var raceList = new View.RacesList({});
 		this.currentView = raceList;
 		$("#content").html(raceList.render().el);
+		*/
 	},
 
 	raceForm: function(id) {
