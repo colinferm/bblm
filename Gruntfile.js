@@ -12,7 +12,8 @@ module.exports = function(grunt) {
     watch: {
       concatJS: {
         files: ['/var/www/html/js/app/**/*.js', '!/var/www/html/js/lib/**/*'],
-        tasks: ['concat:toCompiled', 'uglify:fromCompiled', 'clean:removeCompiled'],
+        tasks: ['concat:toCompiled', 'uglify:fromCompiled'],
+        //tasks: ['concat:toCompiled', 'uglify:fromCompiled', 'clean:removeCompiled'],
         interrupt: true
       },
       concatTemplates: {
@@ -46,8 +47,7 @@ module.exports = function(grunt) {
           '!/var/www/html/js/lib/underscore-umd-min.js', 
           '!/var/www/html/js/lib/backbone-min.js', 
           '!/var/www/html/js/lib/jquery-3.6.0-min.js', 
-          '!/var/www/html/js/lib/jquery-3.6.0-min.js',
-          '!/var/www/html/js/lib/mustache.js'
+          '!/var/www/html/js/lib/handlebars.min-v4.7.7.js'
         ],
         dest: '/var/www/html/js/bblm.js'
       },
@@ -61,9 +61,10 @@ module.exports = function(grunt) {
           }
         },
         src: [
+          '/var/www/html/js/lib/jquery-3.6.0.min.js',
           '/var/www/html/js/lib/underscore-umd-min.js',
           '/var/www/html/js/lib/backbone-min.js',
-          '/var/www/html/js/lib/jquery-3.6.0.min.js'
+          '/var/www/html/js/lib/handlebars.min-v4.7.7.js'
         ],
         dest: '/var/www/html/js/libs.js'
       },
@@ -79,7 +80,7 @@ module.exports = function(grunt) {
           '!/var/www/html/js/lib/backbone-min.js', 
           '!/var/www/html/js/lib/jquery-3.6.0-min.js', 
           '!/var/www/html/js/lib/jquery-3.6.0-min.js',
-          '!/var/www/html/js/lib/mustache.js'
+          '!/var/www/html/js/lib/handlebars.min-v4.7.7.js'
         ],
         dest: '/var/www/html/js/bblm-compiled.js'
       },

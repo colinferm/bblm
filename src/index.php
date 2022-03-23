@@ -18,7 +18,6 @@
 
 	<?php require_once './templates.html'; ?>
     <script src="/js/libs.js"></script>
-	<script type="module" src="/js/lib/mustache.js"></script>
 	<script src="/js/bblm.js"></script>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">

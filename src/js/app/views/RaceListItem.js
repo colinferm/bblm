@@ -3,7 +3,7 @@ BBLM.View.RaceListItem = Backbone.View.extend({
 	templateName: 'races-list-item',
 
 	initialize: function() {
-		this.template = _.template(BBLM.Util.Templates.get(this.templateName));
+		this.template = Handlebars.compile(BBLM.Util.Templates.get(this.templateName));
 		this.listenTo(this.model, 'sync change', this.render)
 	},
 

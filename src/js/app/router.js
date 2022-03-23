@@ -25,6 +25,7 @@ BBLM.Router = Backbone.Router.extend({
 
 	initialize: function() {
 		//this.topNav = 
+		//var crumbs = new BBLM.View.Breadcrumbs();
 	},
 
 	login: function() {
@@ -40,12 +41,9 @@ BBLM.Router = Backbone.Router.extend({
 	},
 
 	listRaces: function() {
-		/*
-		console.log("Blah");
-		var raceList = new View.RacesList({});
-		this.currentView = raceList;
+		var raceCollection = new BBLM.Collection.Races();
+		var raceList = new BBLM.View.RacesList({collection: raceCollection});
 		$("#content").html(raceList.render().el);
-		*/
 	},
 
 	raceForm: function(id) {
@@ -85,6 +83,6 @@ BBLM.Router = Backbone.Router.extend({
 	},
 
 	logGame: function(id) {
-		
+
 	}
 });

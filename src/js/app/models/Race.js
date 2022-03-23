@@ -4,5 +4,5 @@ BBLM.Model.Race = Backbone.Model.extend({
 
 BBLM.Collection.Races = Backbone.Collection.extend({
 	model : BBLM.Model.Race,
-	urlRoot: '/api/races'
+	url: '/api/races'
 });

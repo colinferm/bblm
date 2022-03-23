@@ -1,7 +1,7 @@
-var BBLM = {
-	View = {},
-	Model = {},
-	Collection = {},
-	Util = {},
-	Template = []
+window.BBLM = {
+	View: {},
+	Model: {},
+	Collection: {},
+	Util: {},
+	Template: []
 };
