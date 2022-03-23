@@ -94,10 +94,10 @@ function getPosition($id) {
 	$stmt = $conn->prepare($sql);
 	$stmt->bindParam(":id", $id);
 	$stmt->execute();
-	$results = $stmt->fetchAll()[0];
+	$results = $stmt->fetchAll();
 
-	$pos = marshalPosition($obj, $conn);
-	return $pos;
+	$pos = marshalPosition($results[0], $conn);
+	echo json_encode($pos);
 }
 
 function marshalPosition($obj, $conn) {
