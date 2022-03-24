@@ -19,3 +19,24 @@ BBLM.Util.Templates = {
 
 BBLM.Util.Dispatcher = {};
 _.extend(BBLM.Util.Dispatcher, Backbone.Events);
+
+Handlebars.registerHelper('yesNo', function(boolVal) {
+	if (boolVal) return "Yes";
+	return "No";
+});
+Handlebars.registerHelper('primarySkill', function(obj) {
+	if (obj.primary) {
+		return obj.code;
+	}
+	return;
+});
+Handlebars.registerHelper('secondarySkill', function(obj) {
+	if (!obj.primary) {
+		return obj.code;
+	}
+	return;
+});
+Handlebars.registerHelper('gold', function(num) {
+	var num = Number(num).toFixed(0);
+	return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+});

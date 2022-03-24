@@ -1,0 +1,29 @@
+.position-form {
+	.position-container {
+		//margin-top: 20px;
+	}
+
+	.add-another-container {
+		//margin-top: 20px;
+	}
+}
+
+.view-edit-form {
+	tbody {
+		.view-edit-row {
+			display: contents;
+		}
+		tr.edit-form {
+			&.skills {
+				//
+			}
+		}
+		tr.display-form {
+			display: none;
+		}
+		.autocomplete-tag {
+			padding: 2px 4px 3px;
+			background-color: #000;
+		}
+	}
+}

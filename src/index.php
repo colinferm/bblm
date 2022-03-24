@@ -11,6 +11,8 @@
 	<link href="/css/fontawesome.min.css" rel="stylesheet">
 	<link href="/css/regular.min.css" rel="stylesheet">
 	<link href="/css/solid.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-tagsinput.css" rel="stylesheet">
+	<link href="/css/bblm.css" rel="stylesheet">
 
     <title>League Manager</title>
   </head>
@@ -56,10 +58,15 @@
 		  </div>
 		</div>
 	</nav>
+	<div class="container">
+	<div class="row">
+		<div class="col">
+			<div id="content">
 
-	<div id="content">
-
+			</div>
+		</div>
 	</div>
+</div>
 
 	<script>
 		if ($) {

@@ -47,7 +47,8 @@ module.exports = function(grunt) {
           '!/var/www/html/js/lib/underscore-umd-min.js', 
           '!/var/www/html/js/lib/backbone-min.js', 
           '!/var/www/html/js/lib/jquery-3.6.0-min.js', 
-          '!/var/www/html/js/lib/handlebars.min-v4.7.7.js'
+          '!/var/www/html/js/lib/handlebars.min-v4.7.7.js',
+          '!/var/www/html/js/lib/bootstrap-tagsinput.min.js'
         ],
         dest: '/var/www/html/js/bblm.js'
       },
@@ -64,7 +65,8 @@ module.exports = function(grunt) {
           '/var/www/html/js/lib/jquery-3.6.0.min.js',
           '/var/www/html/js/lib/underscore-umd-min.js',
           '/var/www/html/js/lib/backbone-min.js',
-          '/var/www/html/js/lib/handlebars.min-v4.7.7.js'
+          '/var/www/html/js/lib/handlebars.min-v4.7.7.js',
+          '/var/www/html/js/lib/bootstrap-tagsinput.min.js'
         ],
         dest: '/var/www/html/js/libs.js'
       },
@@ -80,7 +82,8 @@ module.exports = function(grunt) {
           '!/var/www/html/js/lib/backbone-min.js', 
           '!/var/www/html/js/lib/jquery-3.6.0-min.js', 
           '!/var/www/html/js/lib/jquery-3.6.0-min.js',
-          '!/var/www/html/js/lib/handlebars.min-v4.7.7.js'
+          '!/var/www/html/js/lib/handlebars.min-v4.7.7.js',
+          '!/var/www/html/js/lib/bootstrap-tagsinput.min.js'
         ],
         dest: '/var/www/html/js/bblm-compiled.js'
       },

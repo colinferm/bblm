@@ -3,11 +3,11 @@ BBLM.View.Breadcrumbs = Backbone.View.extend({
 	templateName: 'breadcrumbs',
 
 	initialize: function() {
-		this.template = BBLM.Util.Templates.get(this.templateName);
+		this.template = Handlebars.compile(BBLM.Util.Templates.get(this.templateName));
 	},
 
 	render: function() {
-		$(this.el).html(Mustache.render(this.template, this.model.toJSON()));
+		$(this.el).html(this.template({}));
 
 		return this;
 	}

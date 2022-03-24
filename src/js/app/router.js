@@ -47,7 +47,12 @@ BBLM.Router = Backbone.Router.extend({
 	},
 
 	raceForm: function(id) {
-
+		console.log("Router: Clicked on: " + id);
+		var model = new BBLM.Model.Race({id: id});
+		var collection = new BBLM.Collection.Positions();
+		collection.url = '/api/races/positions/' + id;
+		var racesForm = new BBLM.View.RacesForm({model: model, collection: collection});
+		$("#content").html(racesForm.render().el);
 	},
 
 	showLeagues: function() {

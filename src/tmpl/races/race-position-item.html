@@ -1,0 +1,121 @@
+<tr class="edit-form mb-4 stats">
+	<td>
+		<div class="form-floating">
+			<input type="number" class="form-control" id="min-allowed-1" placeholder="0" value="{{min}}">
+			<label for="some-min" class="col-form-label-sm">Min</label>
+		</div>
+	</td>
+
+	<td>
+		<div class="form-floating">
+		<input type="number" class="form-control" id="max-allowed-1" placeholder="0" value="{{max}}">
+		<label for="some-max" class="col-form-label-sm">Max</label>
+		</div>
+	</td>
+	<td class="col-md-3">
+		<div class="form-floating">
+		<input type="text" class="form-control" placeholder="Lineman" value="{{position}}">
+		<label for="some-position" class="col-form-label-sm">Position</label>
+		</div>
+	</td>
+	<td>
+		<div class="form-floating">
+		<input type="text" class="form-control" placeholder="Hire Cost" value="{{gold hiring_cost}}">
+		<label for="some-hire" class="col-form-label-sm">Hire Cost</label>
+		</div>
+	</td>
+	<td>
+		<div class="form-floating">
+		<input type="text" class="form-control" placeholder="TV Cost" value="{{gold tv_cost}}">
+		<label for="some-hire" class="col-form-label-sm">TV Value</label>
+		</div>
+	</td>
+	<td>
+		<div class="form-floating">
+		<input type="number" class="form-control" placeholder="MV" value="{{MV}}">
+		<label for="some-hire" class="col-form-label-sm">MV</label>
+		</div>
+	</td>
+	<td>
+		<div class="form-floating">
+		<input type="number" class="form-control" placeholder="ST" value="{{ST}}">
+		<label for="some-hire" class="col-form-label-sm">ST</label>
+		</div>
+	</td>
+	<td>
+		<div class="form-floating">
+		<input type="text" class="form-control" placeholder="AG" value="{{AG}}+">
+		<label for="some-hire" class="col-form-label-sm">AG</label>
+		</div>
+	</td>
+	<td>
+		<div class="form-floating">
+		<input type="text" class="form-control" placeholder="PA" value="{{PA}}+">
+		<label for="some-hire" class="col-form-label-sm">PA</label>
+		</div>
+	</td>
+	<td>
+		<div class="form-floating">
+		<input type="text" class="form-control" placeholder="AV" value="{{AV}}+">
+		<label for="some-hire" class="col-form-label-sm">AV</label>
+		</div>
+	</td>
+</tr>
+<tr class="edit-form mb-4 skills">
+	<td colspan="10">
+		<table class="table mb-0">
+			<tr>
+				<th scope="col">Primary Skills</th>
+				<th scope="col">Secondary Skills</th>
+				<th scope="col">Skills/Traits</th>
+			</tr>
+			<tr>
+				<td><input type="text" class="form-control primary-skills" aria-label="Primary Skills" data-role="tagsinput"></td>
+				<td><input type="text" class="form-control secondary-skills" aria-label="Secondary Skills" data-role="tagsinput"></td>
+				<td><input type="text" class="form-control position-skills" aria-label="Skills" data-role="tagsinput"></td>
+				<!--
+				<td><textarea class="form-control secondary-skills" aria-label="Secondary Skills" data-role="tagsinput"></textarea></td>
+				<td><textarea class="form-control position-skills" aria-label="Skills" data-role="tagsinput"></textarea></td>
+				-->
+			</tr>
+		</table>
+	</td>
+</tr>
+<tr class="display-form">
+	<td>{{min}}</td>
+	<td>{{max}}</td>
+	<td class="col-md-3"><strong>{{position}}</strong></td>
+	<td>{{gold hiring_cost}}</td>
+	<td>{{gold tv_cost}}</td>
+	<td>{{MV}}</td>
+	<td>{{ST}}</td>
+	<td>{{AG}}+</td>
+	<td>{{PA}}+</td>
+	<td>{{AV}}+</td>
+</tr>
+<tr class="display-form">
+	<td colspan="10">
+		<table class="table mb-0">
+			<tr>
+				<th scope="col">
+					Primary:
+					{{#skill_types}}
+						{{primarySkill this}}
+					{{/skill_types}}
+				</th>
+				<th scope="col">
+					Secondary:
+					{{#skill_types}}
+						{{secondarySkill this}}
+					{{/skill_types}}
+				</th>
+				<th scope="col text-end">Skills/Traits:</th>
+				<td class="col-md-3">
+					{{#skills}}
+					<div>{{name}}</div>
+					{{/skills}}
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>

@@ -4,21 +4,21 @@ BBLM.View.RacesList = Backbone.View.extend({
 	templateName: 'races-list',
 	el: '#content',
 
-	/*
-
 	events: {
 		'click button.add-new': 'addNewRace'
 	},
-	*/
 
 	initialize: function() {
-		this.template = _.template(BBLM.Util.Templates.get(this.templateName));
+		this.template = Handlebars.compile(BBLM.Util.Templates.get(this.templateName));
 		this.listenTo(this.collection, 'sync change', this.render)
 		this.collection.fetch();
 	},
 
 	render: function() {
 		$(this.el).html(this.template({}));
+
+		var breadcrumbs = new BBLM.View.Breadcrumbs();
+		this.$('.breadcrumbs-container').html(breadcrumbs.render().$el);
 		var list = this.$('tbody').empty();
 		this.collection.each(function(model){
 			var listItem = new BBLM.View.RaceListItem({model: model});

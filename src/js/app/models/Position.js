@@ -4,5 +4,5 @@ BBLM.Model.Position = Backbone.Model.extend({
 
 BBLM.Collection.Positions = Backbone.Collection.extend({
 	model : BBLM.Model.Position,
-	urlRoot: '/api/races/positions'
+	urlRoot: '/api/races/positions/'
 });

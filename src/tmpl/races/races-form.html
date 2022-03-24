@@ -1,0 +1,84 @@
+<div class="row">
+	<div class="col">
+		<h3>{{AddEditText}}</h3>
+	</div>
+</div>
+<form class="row mb-4">
+	<div class="row mb-3">
+		<label for="inputRaceName" class="col-sm-2 col-form-label">Race:</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="inputRaceName" value="{{name}}">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label for="inputRaceDesc" class="col-sm-2 col-form-label">Description</label>
+		<div class="col-sm-10">
+			<textarea class="form-control" id="inputRaceDesc" aria-label="With textarea">{{description}}</textarea>
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label for="inputBribeCost" class="col-sm-2 col-form-label">Bribe Cost:</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="inputBribeCost" value="{{gold bribe}}">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label for="inputChefCost" class="col-sm-2 col-form-label">Chef Cost:</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="inputChefCost" value="{{gold chef}}">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label for="inputRerollCost" class="col-sm-2 col-form-label">Re-roll Cost:</label>
+		<div class="col-sm-6">
+		<input type="text" class="form-control" id="inputRerollCost" value="{{gold reroll}}">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-2 col-form-check-label" for="hasApothecary">Apothecary?</label>
+		<div class="form-check col-sm-4">
+			<input class="form-check-input" type="checkbox" id="hasApothecary">
+		</div>
+		<div class="form-check col-sm-6">
+			<select class="form-select">
+				<option value="1">Tier 1</option>
+				<option value="2">Tier 2</option>
+				<option value="3">Tier 3</option>
+			  </select>
+		</div>
+</form>
+<div class="position-container view-edit-form">
+	<div class="row mt-4 mb-4">
+		<div class="col">
+			<h3>Positions</h3>
+		</div>
+		<div class="col text-end">
+			<button class="btn-sm btn-dark edit-positionals" type="submit">Edit</button>
+			<button class="btn-sm btn-danger cancel-positionals" type="submit">Cancel</button>
+		</div>
+	</div>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th scope="col">Min</th>
+				<th scope="col">Max</th>
+				<th scope="col" class="col-md-3">Position</th>
+				<th scope="col">Hire Cost</th>
+				<th scope="col">TV Value</th>
+				<th scope="col">MV</th>
+				<th scope="col">ST</th>
+				<th scope="col">AG</th>
+				<th scope="col">PA</th>
+				<th scope="col">AV</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+	<div class="row mt-4 add-new-position-container">
+		<div class="col text-end">
+			<button class="btn btn-dark add-new-position" type="submit">Add Another</button>
+			<button class="btn btn-success save-positionals" type="submit">Save</button>
+		</div>
+	</div>
+</div>
